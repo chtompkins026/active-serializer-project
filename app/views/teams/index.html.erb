@@ -1,0 +1,19 @@
+<script>
+  $(document).ready(function(){
+  $.ajax({
+   url: '/teams.json',
+   method: 'GET',
+   success: function(response){
+     response.forEach((team) => {
+      let team_html = $("<li>" + team.name + "</li>");
+      $("#teams_olist").append(team_html);
+    });
+   }
+  });
+});
+</script>
+
+<div>
+  <ol id="teams_olist">
+  </ol>
+</div>
