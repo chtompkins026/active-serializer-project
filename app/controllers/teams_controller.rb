@@ -2,17 +2,12 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
-    respond_to do |f|
-      f.html
-      f.json{
-        render json: @teams.to_json
-      }
-    end
+    render_page(@teams)
   end
 
   def show
     @team = Team.find(params[:id])
-    render json: @team
+    render_page(@team)
   end
 
   def create
@@ -30,6 +25,15 @@ class TeamsController < ApplicationController
 
   def team_params
     params.require(:team).permit(:id, :name, :total_points)
+  end
+
+  def render_page(teams)
+    respond_to do |f|
+      f.html
+      f.json{
+        render json: teams
+      }
+    end
   end
 
 end #end of class

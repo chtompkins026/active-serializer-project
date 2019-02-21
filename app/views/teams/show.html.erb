@@ -1,0 +1,25 @@
+<script>
+  $(document).ready(function(){
+  $.ajax({
+   url: '/teams/'+<%=params[:id]%>+'.json',
+   method: 'GET',
+   success: function(response){
+     let team_name = $("<h2>" + "Welcome to Team: " + response.name + "</h2>");
+     $("#individual_team").append(team_name);
+
+     response.players.forEach((p)=>{
+       let player_info = $("<li>" + p.name + " - "+ p.nba_team + "</li>");
+       $("#teams_olist").append(player_info);
+     });
+   }
+  });
+  
+});
+</script>
+
+<div>
+  <div id="individual_team">
+  </div>
+  <ol id="teams_olist"> </ol>
+  <button id="next_button"> Next </button>
+</div>

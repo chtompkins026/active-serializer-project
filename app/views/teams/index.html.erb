@@ -5,7 +5,7 @@
    method: 'GET',
    success: function(response){
      response.forEach((team) => {
-      let team_html = $("<li>" + team.name + "</li>");
+      let team_html = $("<li>" + team.name + " "+ team.id + "</li>");
       $("#teams_olist").append(team_html);
     });
    }
