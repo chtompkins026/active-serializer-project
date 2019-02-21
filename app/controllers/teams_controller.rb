@@ -7,7 +7,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    render json: @team.to_json 
+    render json: @team
   end
 
 
