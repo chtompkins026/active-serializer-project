@@ -16,13 +16,13 @@ class PlayersController < ApplicationController
   def create
     @player = Player.create(player_params)
     if @player.save
-      respond_to do |j|
+      respond_to do |f|
         f.json{
           render json: @player
         }
       end
     else
-      flash[:error] = "#{@player.errors.full_messages.join(", ")}" might use this later
+      flash[:error] = "#{@player.errors.full_messages.join(", ")}"
     end
   end
 

@@ -33,6 +33,26 @@ function showTeam(id) {
   });
 }
 
-function submit_form(){
-  console.log("Hello From the Outside"); 
+// POST   /teams/:team_id/players(.:format)
+// params.require(:player).permit(:name, :position, :nba_team, :points, :team_id)
+class Player{
+  constructor(); 
+}
+
+function submit_form(team_id){
+  $.ajax({
+    url: '/teams/'+team_id+'/players'+'.json',
+    method: 'POST',
+    data: {
+      player: {
+        name: $('#player_name').val(),
+        nba_team: $('#player_nba_team').val(),
+        position: $('#player_position').val(),
+        team_id: team_id
+      }
+    },
+    success: function(response){
+      console.log(response);
+    }
+  });
 }
