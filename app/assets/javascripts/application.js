@@ -36,10 +36,19 @@ function showTeam(id) {
 // POST   /teams/:team_id/players(.:format)
 // params.require(:player).permit(:name, :position, :nba_team, :points, :team_id)
 class Player{
-  constructor(); 
+  constructor(obj){
+    this.name = obj.name;
+    this.nba_team = obj.nba_team;
+    this.position = obj.position;
+  }
+
+  getHTML(){
+    return "<li>" + this.name + " - "+ this.nba_team + "</li>" ;
+  }
 }
 
 function submit_form(team_id){
+  $("#errors").text("");
   $.ajax({
     url: '/teams/'+team_id+'/players'+'.json',
     method: 'POST',
@@ -52,7 +61,14 @@ function submit_form(team_id){
       }
     },
     success: function(response){
-      console.log(response);
+      console.log("this is a response", response);
+      let player_info = new Player(response).getHTML();
+      $("#teams_olist").append(player_info);
+    },
+    error: function(response){
+      console.log("this is an error response", response.responseText);
+      let error_info = response.responseText;
+      $("#errors").text(error_info);
     }
   });
 }

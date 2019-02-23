@@ -22,7 +22,7 @@ class PlayersController < ApplicationController
         }
       end
     else
-      flash[:error] = "#{@player.errors.full_messages.join(", ")}"
+      render json: "#{@player.errors.full_messages.join(", ")}"
     end
   end
 
