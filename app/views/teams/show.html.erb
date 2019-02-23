@@ -10,7 +10,7 @@
      method: 'GET',
      success: function(response){
        console.log("this is the response: ", response);
-       current_id = response; 
+       current_id = response;
        showTeam(current_id);
      }
     });
@@ -23,4 +23,14 @@
   </div>
   <ol id="teams_olist"> </ol>
   <button id="next_button"> Next </button>
-</div>
+</div> <br> <br>
+
+<form id="add_player">
+  <label for="player_name"> Player Name </label>
+  <input type="text" name="player_name" id="player_name"><br>
+  <label for="player_nba_team"> NBA Team </label>
+  <input type="text" name="player_nba_team" id="player_nba_team"><br>
+  <label for="player_position"> NBA Team </label>
+  <input type="text" name="player_position" id="player_position"><br>
+  <input type="button" onclick="submit_form();" value="Add Player"> </input>
+</form>
