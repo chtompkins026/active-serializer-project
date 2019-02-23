@@ -1,19 +1,20 @@
 <script>
-  $(document).ready(function(){
-  $.ajax({
-   url: '/teams/'+<%=params[:id]%>+'.json',
-   method: 'GET',
-   success: function(response){
-     let team_name = $("<h2>" + "Welcome to Team: " + response.name + "</h2>");
-     $("#individual_team").append(team_name);
+  let current_id = <%= params[:id] %> ;
 
-     response.players.forEach((p)=>{
-       let player_info = $("<li>" + p.name + " - "+ p.nba_team + "</li>");
-       $("#teams_olist").append(player_info);
-     });
-   }
+  $(document).ready(function(){
+    showTeam(current_id);
+  $("#next_button").on("click", (e) => {
+    e.preventDefault();
+    $.ajax({
+     url: '/next_team/'+current_id+'.json',
+     method: 'GET',
+     success: function(response){
+       console.log("this is the response: ", response);
+       current_id = response; 
+       showTeam(current_id);
+     }
+    });
   });
-  
 });
 </script>
 

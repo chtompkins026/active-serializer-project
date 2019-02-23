@@ -15,3 +15,20 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function showTeam(id) {
+  $.ajax({
+   url: '/teams/'+id+'.json',
+   method: 'GET',
+   success: function(response){
+     let team_name = $("<h2>" + "Welcome to Team: " + response.name + "</h2>");
+     $("#individual_team").empty();
+     $("#individual_team").append(team_name);
+     $("#teams_olist").empty(); 
+     response.players.forEach((p)=>{
+       let player_info = $("<li>" + p.name + " - "+ p.nba_team + "</li>");
+       $("#teams_olist").append(player_info);
+     });
+   }
+  });
+}

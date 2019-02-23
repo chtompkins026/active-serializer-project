@@ -13,6 +13,16 @@ class PlayersController < ApplicationController
     end
   end
 
+  def create
+    @player = Player.create(player_params)
+    if @player.save
+
+    else
+      # flash[:error] = "#{@player.errors.full_messages.join(", ")}" might use this later 
+
+    end
+  end
+
 private
 
   def player_params

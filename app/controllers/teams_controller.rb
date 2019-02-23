@@ -10,6 +10,16 @@ class TeamsController < ApplicationController
     render_page(@team)
   end
 
+  def next_team
+    @id = params[:id]
+    teams = Team.all.pluck(:id)
+    original_id = teams.index(@id.to_i)
+    next_id = (original_id + 1) % teams.length
+    @next_id = teams[next_id]
+
+    render json: @next_id.to_json
+  end
+
   def create
     @team = Team.create(team_params)
     if @team.save
