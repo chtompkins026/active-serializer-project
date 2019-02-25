@@ -1,0 +1,18 @@
+<form id="add_player">
+  <h3> Add Player:</h3>
+  <p id="errors"> </p>
+    <label for="player_name"> Player Name </label>
+    <select name="player_name" id="player_name">
+      <% Player.all.pluck(:name).each do |name| %>
+        <option value="<%=name%>"> <%=name%> </option>
+      <% end %>
+    </select><br>
+
+    <label for="player_nba_team"> NBA Team </label>
+    <input type="text" name="player_nba_team" id="player_nba_team"><br>
+
+    <label for="player_position"> Player Position </label>
+    <input type="text" name="player_position" id="player_position"><br>
+
+    <input type="button" onclick="submit_form(current_id);" value="Add Player"> </input>
+</form>
