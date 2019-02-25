@@ -1,0 +1,16 @@
+<script>
+  $.ajax({
+   url: '/users.json',
+   method: 'GET',
+   success: function(response){
+     console.log("this is the response: ", response);
+     current_id = response;
+   }
+ });
+</script>
+
+<div>
+  <ol id="users_list"> 
+    <li> </li>
+  </ol>
+</div>
