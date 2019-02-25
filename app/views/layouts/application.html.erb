@@ -10,6 +10,24 @@
   </head>
 
   <body>
+    <header class="main_header">
+      <div class="container_1">
+        <nav>
+          <ul class="main_navbar">
+            <li id="main_navbar_li"><a href="/">Home</a></li>
+
+            <% if logged_in? && current_user%>
+              <% @user = current_user%>
+              <li id ="main_navbar_li"><a href="/users/<%=@user.id%>"> My Fantasy Page </a> </li>
+              <li id ="main_navbar_li"><a href="/logout"> Logout </a></li>
+            <% else %>
+              <li id="main_navbar_li"><a href="/login">Log In</a></li>
+              <li id="main_navbar_li"><a href="/signup">Sign Up</a></li>
+            <%end%>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <%= yield %>
 
