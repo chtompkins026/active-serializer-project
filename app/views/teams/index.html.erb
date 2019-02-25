@@ -4,8 +4,9 @@
    url: '/teams.json',
    method: 'GET',
    success: function(response){
+     $("#teams_olist").clear 
      response.forEach((team) => {
-      let team_html = $("<li>" + team.name + " "+ team.id + "</li>");
+      let team_html = $("<li>" + "<a href='/teams/"+ team.id + "'" + ">" + team.name + "</a>"+ " "+ team.id + "</li>");
       $("#teams_olist").append(team_html);
     });
    }
@@ -14,6 +15,9 @@
 </script>
 
 <div>
+  <h1> Teams in the League </h1>
+
   <ol id="teams_olist">
   </ol>
+
 </div>
