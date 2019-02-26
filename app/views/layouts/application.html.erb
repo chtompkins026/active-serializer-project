@@ -14,6 +14,7 @@
       <div class="container_1">
         <nav>
           <ul class="main_navbar">
+            <%= link_to image_tag("fantasy_sports.png", alt: "logo", class: "logo"), '/' %>
             <li id="main_navbar_li"><a href="/">Home</a></li>
 
             <% if logged_in? && current_user%>
