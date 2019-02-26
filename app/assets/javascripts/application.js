@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require_tree .
 
+// show team function -->
+
 function showTeam(id) {
   $.ajax({
    url: '/teams/'+id+'.json',
@@ -33,8 +35,8 @@ function showTeam(id) {
   });
 }
 
-// POST   /teams/:team_id/players(.:format)
-// params.require(:player).permit(:name, :position, :nba_team, :points, :team_id)
+// New Player Class
+
 class Player{
   constructor(obj){
     this.name = obj.name;
@@ -46,6 +48,8 @@ class Player{
     return "<li>" + this.name + " - "+ this.nba_team + "</li>" ;
   }
 }
+
+// Submit Form For Add Player
 
 function submit_form(team_id){
   $("#errors").text("");

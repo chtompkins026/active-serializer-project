@@ -1,5 +1,9 @@
 class TeamsController < ApplicationController
 
+  def new
+    render 
+  end
+
   def index
     @teams = Team.all
     render_page(@teams)
