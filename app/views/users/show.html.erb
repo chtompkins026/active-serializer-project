@@ -1,6 +1,6 @@
 <% if user_check(@user.id)%>
   <h1>Hi, <%= @user.name%>!</h1>
-  <p> <%= link_to "Edit Your Information", edit_user_path(@user) %> <p>
+  <p> <%= button_to "Edit Your Information", edit_user_path(@user) %> <p>
 <% else %>
   <h1>Checking out the competition, huh <%= current_user.name%>?!</h1>
 <%end%>
