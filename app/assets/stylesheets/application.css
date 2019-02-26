@@ -115,3 +115,51 @@
  nav ul > li > a:hover::before {
    width: 100%;
  }
+
+ /* Table CSS */
+
+
+ table {
+   margin-top: 2%;
+  margin-left: 10px;
+  width: 60%;
+  /* border-spacing: 5px;  */
+}
+
+th {
+  text-align: left;
+  background: #7FFFD4;
+}
+
+table, th, td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  transition: all ease-in-out 250ms;
+}
+
+td > a {
+  text-decoration: none;
+  color: black;
+}
+
+td > a:hover {
+  transition: all ease-in-out 250ms;
+  text-decoration: underline blue;
+  color: black;
+}
+
+td:hover {
+  background-color: #B0C4DE;
+}
+
+tr:nth-child(even) {
+  background-color: #FFFAF0;
+}
+
+tr:nth-child(odd) {
+  background-color: #D3D3D3;
+}
