@@ -1,4 +1,4 @@
 class Player < ApplicationRecord
-  belongs_to :team
-  validates_uniqueness_of :name 
+  belongs_to :team, optional: true
+
 end

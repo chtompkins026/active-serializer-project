@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
   def new
-    render 
+   @team = Team.new
   end
 
   def index
@@ -26,19 +26,15 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.create(team_params)
-    if @team.save
-      redirect_to team_path(@team)
-    else
-      flash[:error] = "#{@team.errors.full_messages.join(", ")}"
-      redirect_to team_path(@team)
-    end
+    @team.save
+    redirect_to team_path(@team)
   end
 
 
   private
 
   def team_params
-    params.require(:team).permit(:id, :name, :total_points)
+    params.require(:team).permit(:id, :name, :total_points, :user_id)
   end
 
   def render_page(teams)

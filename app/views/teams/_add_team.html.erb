@@ -1,8 +1,23 @@
-<form id="add_team">
-  <h3> Create Team:</h3>
-  <p id="errors"> </p>
-    <label for="team_name"> Team Name </label>
-    <input type="text" name="team_name" id="team_name"><br>
+<%= form_for(@team) do |t| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this newly created team from being saved:</h2>
 
-    <input type="button" id="create_team" onclick="submit_form(current_id);" value="Create Team"> </input>
-</form>
+      <ul>
+      <% @team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= t.hidden_field :user_id, value:session[:user_id] %>
+    <%= t.label :name %><br>
+    <%= t.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= t.submit %>
+  </div>
+<% end %>

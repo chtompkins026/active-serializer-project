@@ -18,6 +18,14 @@
    text-decoration: underline;
  }
 
+/* creating a new team  */
+
+ .field {
+   margin-top: 1%;
+   margin-bottom: 1%;
+ }
+
+
  button {
   font-size: 22px;
   padding: 4px 8px;
