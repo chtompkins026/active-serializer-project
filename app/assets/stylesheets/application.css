@@ -13,6 +13,18 @@
  *= require_tree .
  *= require_self
  */
+ #new_user {
+   font-size: 22px;
+   text-decoration: underline;
+ }
+
+ button {
+  font-size: 22px;
+  padding: 4px 8px;
+  display: block;
+  margin: 20px auto 0;
+  color: gray;
+}
 
  #title{
  font-size: 22px;
