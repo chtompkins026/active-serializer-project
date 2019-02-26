@@ -9,8 +9,10 @@
     <%= f.password_field :password, class: 'form-control' %> <br>
 
     <p> <%= f.submit "Log in", class: "btn btn-primary" %> <p> <br>
-  <% end %> 
+  <% end %>
 
   <p id="new_user"> New user? <%= button_to "Sign up now!", signup_path %></p>
+
   <p> OR: </p>
+
   <p><%= button_to "Login With Github", '/auth/github' %> </p>

@@ -7,6 +7,11 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'jquery-rails'
 
+gem 'dotenv-rails'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'thin'
+
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
