@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:update, :destroy]
 
-  def index
-    @comments = Comment.all
-    respond_to do |f|
-      f.json @comments 
-    end
-  end
-
   def new
     @user = User.new
+  end
+
+  def index
+    @users = User.all
+    respond_to do |format|
+      format.html { render show: @users }
+      format.json { render json: @users, serializer: UserSerializer }
+    end
   end
 
   def create
