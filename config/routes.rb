@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'users#new'
-  resources :users
+  resources :users, :sessions 
 
   resources :teams do
     resources :players
