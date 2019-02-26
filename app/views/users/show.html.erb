@@ -1,2 +1,8 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% if user_check(@user.id)%>
+  <h1>Hi, <%= @user.name%>!</h1>
+  <p> <%= link_to "Edit Your Information", edit_user_path(@user) %> <p>
+<% else %>
+  <h1>Checking out the competition, huh <%= current_user.name%>?!</h1>
+<%end%>
+
+  <%= render 'table' %> <br>
