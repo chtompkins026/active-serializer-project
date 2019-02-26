@@ -1,0 +1,16 @@
+<p id="new_user"> Log In: </p>
+
+  <%= form_for(:session, url: login_path) do |f| %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %> <br>
+
+    <p> <%= f.submit "Log in", class: "btn btn-primary" %> <p> <br>
+  <% end %> 
+
+  <p id="new_user"> New user? <%= button_to "Sign up now!", signup_path %></p>
+  <p> OR: </p>
+  <p><%= button_to "Login With Github", '/auth/github' %> </p>
