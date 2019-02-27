@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'users#new'
-  resources :users, :sessions 
-
+  resources :users, :sessions
+  resources :comments, except: [:delete]
+  get 'comments/:id/comment_data', to: 'comments#comment_data'
   resources :teams do
     resources :players
     resources :comments
