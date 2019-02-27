@@ -2,11 +2,11 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update]
 
   def index
-    @comments = comment.all
+    @comments = Comment.all
   end
 
   def show
-    @comment = comment.find(params[:id])
+    @comment = Comment.find(params[:id])
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @comment}
@@ -14,12 +14,16 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = comment.new
+    @comment = Comment.new
   end
 
   def create
-    @comment = comment.create(comment_params)
-    render json: @comment, status: 201
+    @comment = Comment.new(comment_params.merge!(user_id: current_user.id))
+    if @comment.save
+      render json: @comment, status: 201
+    else
+      render json: { errors: @comment.errors.messages }, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -31,10 +35,10 @@ class CommentsController < ApplicationController
   end
 
   def comment_data
-    comment = comment.find(params[:id])
+    comment = Comment.find(params[:id])
     #render json: commentSerializer.serialize(comment)
     render json: comment.to_json(only: [:title, :description, :id],
-                              include: [author: { only: [:name]}])
+                              include: [user: { only: [:name]}])
   end
 
 private

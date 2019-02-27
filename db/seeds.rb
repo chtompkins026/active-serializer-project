@@ -16,4 +16,8 @@ require 'faker'
   end
 end
 
+10.times do
+  comment = Comment.create!({title: Faker::Book.title, description: Faker::TvShows::Community.quotes, user: user1})
+end
+
 # ! creates an error

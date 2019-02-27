@@ -1,28 +1,6 @@
 <script>
   let current_id = <%= params[:id] %> ;
-
-  $(document).ready(function(){
-    showTeam(current_id);
-  $("#next_button").on("click", (e) => {
-    e.preventDefault();
-    $.ajax({
-     url: '/next_team/'+current_id+'.json',
-     method: 'GET',
-     success: function(response){
-       console.log("this is the response: ", response);
-       current_id = response;
-       showTeam(current_id);
-     }
-    });
-  });
-});
+  console.log("current_id: " + current_id);
 </script>
-
-<div>
-  <div id="individual_team">
-  </div>
-  <ol id="teams_olist"> </ol>
-  <button id="next_button"> Next </button>
-</div> <br> <br>
 
 <%= render "add_player" %>

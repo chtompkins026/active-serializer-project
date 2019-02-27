@@ -4,7 +4,7 @@
    url: '/teams.json',
    method: 'GET',
    success: function(response){
-     $("#teams_olist").clear 
+     $("#teams_olist").clear
      response.forEach((team) => {
       let team_html = $("<li>" + "<a href='/teams/"+ team.id + "'" + ">" + team.name + "</a>"+ " "+ team.id + "</li>");
       $("#teams_olist").append(team_html);
@@ -13,11 +13,36 @@
   });
 });
 </script>
-
 <div>
   <h1> Teams in the League </h1>
-
   <ol id="teams_olist">
   </ol>
-
 </div>
+
+<div>
+  <div id="individual_team">
+  </div>
+  <ol id="teams_list"> </ol>
+  <button id="next_button"> Next </button>
+</div> <br> <br>
+
+<script>
+  let current_id = <%= current_user.teams.first.id %> ;
+  console.log("current_id: " + current_id);
+
+  $(document).ready(function(){
+    showTeam(current_id);
+  $("#next_button").on("click", (e) => {
+    e.preventDefault();
+    $.ajax({
+     url: '/next_team/'+current_id+'.json',
+     method: 'GET',
+     success: function(response){
+       console.log("this is the response: ", response);
+       current_id = response;
+       showTeam(current_id + 1);
+     }
+    });
+  });
+});
+</script>

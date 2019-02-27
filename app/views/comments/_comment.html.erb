@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th> More </th>
+  </tr>
+  <tr>
+    <td><%= comment.id %></td>
+    <td><%= link_to comment.title, comment_path(comment) %></td>
+    <td><div id="body-<%= comment.id %>"><%= truncate comment.description %></div></td>
+    <td> <button class="js-more" data-id="<%= comment.id %>">More...</button> </td>
+  </tr>
+</table>

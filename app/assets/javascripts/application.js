@@ -23,13 +23,13 @@ function showTeam(id) {
    url: '/teams/'+id+'.json',
    method: 'GET',
    success: function(response){
-     let team_name = $("<h2>" + "Welcome to Team: " + response.name + "</h2>");
+     let team_name = $("<h2>" + "Current Team: " + response.name + "</h2>");
      $("#individual_team").empty();
      $("#individual_team").append(team_name);
-     $("#teams_olist").empty();
+     $("#teams_list").empty();
      response.players.forEach((p)=>{
        let player_info = $("<li>" + p.name + " - "+ p.nba_team + "</li>");
-       $("#teams_olist").append(player_info);
+       $("#teams_list").append(player_info);
      });
    }
   });
@@ -53,6 +53,7 @@ class Player{
 
 function submit_form(team_id){
   $("#errors").text("");
+  console.log("team_id: " + team_id);
   $.ajax({
     url: '/teams/'+team_id+'/players'+'.json',
     method: 'POST',

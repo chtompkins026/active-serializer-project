@@ -5,7 +5,7 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </div>
   <div class="actions">
     <%= f.submit %>
@@ -13,9 +13,20 @@
 <% end %>
 
 <div id="commentResult">
-  <h2 id="commentTitle"></h2>
-  <p id="commentBody"></p>
+  <h3> Comments Preview</h3>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td id="commentTitle"></td>
+      <td id="commentBody"></td>
+    </tr>
+  </table>
 </div>
+
+<p> <%= link_to "See Comment Board", comments_path %> </p>
 
 <script type="text/javascript" charset="utf-8">
   $(function () {
@@ -25,12 +36,16 @@
 
       var values = $(this).serialize();
 
-      var commenting = $.comment('/comments', values);
+      var commenting = $.post('/comments', values);
 
       commenting.done(function(data) {
         var comment = data;
+        console.log("this is the data", data);
         $("#commentTitle").text(comment["title"]);
         $("#commentBody").text(comment["description"]);
+      });
+      commenting.error(function(data) {
+        console.log("this is the data when errored out", data);
       });
     });
   });

@@ -1,3 +1,7 @@
+<h1> All Comments </h1>
+
+<p> <%= link_to "Create a New Comment", new_comment_path %> </p>
+
 <% @comments.each do |comment| %>
   <%= render partial: "comment", locals: {comment: comment} %>
 <% end %>

@@ -30,7 +30,7 @@ class OmniauthCallbacksController < ApplicationController
   end
 
   def omni?
-    @user = from_omniauth(env["omniauth.auth"])
+    @user = from_omniauth(request.env["omniauth.auth"])
     answer = @user.valid?
   end
 end
