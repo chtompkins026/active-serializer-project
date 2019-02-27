@@ -1,4 +1,5 @@
 <div class="loginbox">
+  <img src="nick_young_logo.png" class="avatar"> 
   <p id="new_user"> Log In: </p>
 
     <%= form_for(:session, url: login_path) do |f| %>
@@ -17,4 +18,4 @@
     <p> OR: </p>
 
     <p><%= link_to "Login With Github", '/auth/github' %> </p>
-</div> 
+</div>
