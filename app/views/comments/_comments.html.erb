@@ -1,0 +1,4 @@
+<h1><%= comment.id %>: <%= link_to comment.title, comment_path(comment) %></h2>
+<div id="body-<%= comment.id %>"><%= truncate comment.description %></div>
+
+<button class="js-more" data-id="<%= comment.id %>">More...</button>
