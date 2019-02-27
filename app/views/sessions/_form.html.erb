@@ -1,0 +1,22 @@
+<div class="loginbox">
+
+  <%= link_to image_tag("nick_young_logo.png", alt: "avatar", class: "avatar"), '/' %>
+
+  <h1 id="sign_up_h1"> Log In</h1>
+    <%= form_for(@user) do |u| %>
+      <%= u.label :name %> <br>
+      <%= u.text_field :name, placeholder: 'Your Name' %><br>
+
+      <%= u.label :email %> <br>
+      <%= u.text_field :email, placeholder: 'Your Email' %><br>
+
+      <%= u.label :password %> <br>
+      <%= u.text_field :password, placeholder: 'Your Password' %><br><br>
+      <%= u.submit %>
+    <% end %>
+
+    <p> <%= link_to 'Forgot My Password', '#' %> </p>
+    <p><%= link_to 'Sign In With Github', '/auth/github' %> </p>
+
+
+</div>

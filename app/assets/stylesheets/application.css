@@ -35,12 +35,14 @@
 }
 
  #title{
- font-size: 22px;
+ font-size: 40px;
  font-family: Arial, Helvetica, sans-serif;;
  text-align: left;
  font-style: italic;
  text-transform: uppercase;
- text-shadow: #2c2c2c 1px 1px 2px;
+ text-shadow: #2c2c2c 2px 2px 5px;
+ color: red;
+ position: absolute;
 }
 
  #errors{
@@ -55,7 +57,16 @@
    padding: 0;
  }
 
-  /* sign in body */
+  /* sign in & login body */
+
+  .sessions.new {
+    margin: 0;
+    padding: 0;
+    background: url(pgs.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
+  }
 
   .users.new {
     margin: 0;
@@ -68,7 +79,7 @@
 
   .loginbox {
     width: 30%;
-    height: 75%;
+    height: 70%;
     background: #000;
     color: #fff;
     top: 60%;
@@ -192,9 +203,9 @@
 
  nav ul > li > a {
    color: #000080
-   text-decoration: none;
    text-transform: uppercase;
    font-size: 14px;
+   text-decoration: none;
  }
 
  nav ul > li > a:hover {
