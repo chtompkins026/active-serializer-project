@@ -1,0 +1,15 @@
+<% @comments.each do |comment| %>
+  <%= render partial: "comment", locals: {comment: comment} %>
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-more").on('click', function() {
+    var id = $(this).data("id");
+    $.get("/comments/" + id + "/comment_data", function(data) {
+      // Replace text of body-id div
+      $("#body-" + id).html(data["description"]);
+    });
+  });
+});
+</script>

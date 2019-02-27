@@ -1,0 +1,37 @@
+<%= form_for(@comment) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<div id="commentResult">
+  <h2 id="commentTitle"></h2>
+  <p id="commentBody"></p>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+
+      var values = $(this).serialize();
+
+      var commenting = $.comment('/comments', values);
+
+      commenting.done(function(data) {
+        var comment = data;
+        $("#commentTitle").text(comment["title"]);
+        $("#commentBody").text(comment["description"]);
+      });
+    });
+  });
+</script>
