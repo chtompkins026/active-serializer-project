@@ -30,6 +30,26 @@ class TeamsController < ApplicationController
     redirect_to team_path(@team)
   end
 
+  def edit
+    @team = Team.find(params[:id])
+  end
+
+  def update
+    @team = Team.find(params[:id])
+    @team.update(team_params)
+    if @team.save
+      redirect_to team_path(@team)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    team = Team.find(params[:id])
+    team.destroy
+    flash[:success] = "Successfully deleted team!"
+    redirect_to user_path(team.user_id)
+  end
 
   private
 
