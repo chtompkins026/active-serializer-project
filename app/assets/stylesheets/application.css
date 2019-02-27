@@ -53,6 +53,17 @@
    background-color: #F0F8FF;
  }
 
+  /* sign in body */
+
+  .users.new {
+    margin: 0;
+    padding: 0;
+    background: url(kobe_wade.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
+  }
+
  /* Nav Bar CSS  */
 
  .container_1 {
