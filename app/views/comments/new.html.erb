@@ -2,19 +2,7 @@
   <h2> New Comment </h2>
 </div>
 
-  <%= form_for(@comment, html: {class: "form_class"}) do |f| %>
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title, class:'form_control'%>
-    </div>
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_area :description, class:'form_control'%>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+<%= render 'form' %> 
 
 <div id="commentResult">
   <h3> Comments Preview</h3>
