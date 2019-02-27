@@ -180,11 +180,9 @@
    width: 8%;
    height: 8%;
    display: inline-block;
+   position: relative;
  }
 
- nav {
-   float: right;
- }
 
  nav ul {
    margin: 0;
@@ -230,24 +228,24 @@
  /* Table CSS */
 
 
- table {
+ .team_show_table {
    margin-top: 2%;
-  margin-left: 10px;
-  width: 60%;
+   margin-left: 10px;
+   width: 60%;
   /* border-spacing: 5px;  */
 }
 
-th {
+ th {
   text-align: left;
   background: #7FFFD4;
 }
 
-table, th, td {
+ th, td{
   border: 1px solid #000;
   border-collapse: collapse;
 }
 
-th, td {
+ th, td{
   padding: 10px;
   transition: all ease-in-out 250ms;
 }
@@ -267,7 +265,7 @@ td:hover {
   background-color: #B0C4DE;
 }
 
-tr:nth-child(even) {
+  tr:nth-child(even) {
   background-color: #FFFAF0;
 }
 
@@ -278,5 +276,139 @@ tr:nth-child(odd) {
 /* no players on team show */
 
 #no_players {
-  color: gray; 
+  color: gray;
+}
+
+/* Adding a Player To Team */
+.add_player {
+  width: 30%;
+  height: 60%;
+  background: #7FFFD4;
+  opacity: 0.8;
+  color: #fff;
+  top: 50%;
+  left: 80%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  border-radius: 4%;
+  padding: 70px 30px;
+}
+
+#add_h1{
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 28px;
+  color: black;
+}
+
+.add_player label{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.add_player select{
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.add_player label{
+  color: black;
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.add_player input[type="button"]{
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 100%;
+  background: #fb2525;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.add_player input[type="button"]:hover{
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+
+/* Nav Bar CSS  */
+
+.container_1 {
+ width: 80%;
+ margin: 0 auto;
+}
+
+.main_header {
+ background: #3CB371;
+ border-radius: 1px;
+}
+
+.main_header::after {
+ content: ' ';
+ display: table;
+ clear: both;
+}
+
+.logo {
+ float: left;
+ padding: 5px 0;
+ width: 8%;
+ height: 8%;
+ display: inline-block;
 }

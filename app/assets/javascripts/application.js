@@ -62,6 +62,7 @@ function submit_form(team_id){
         name: $('#player_name').val(),
         nba_team: $('#player_nba_team').val(),
         position: $('#player_position').val(),
+        points: $('#player_points').val(),
         team_id: team_id
       }
     },
