@@ -2,7 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :require_login, :admin_only, :user_check
   include SessionsHelper
-  include UsersHelper 
+  include UsersHelper
+
+  def user_exists?
+    User.exists?(id: session[:user_id])
+  end
 
   def current_user
       if !session[:user_id].nil? && User.exists?(id: session[:user_id])

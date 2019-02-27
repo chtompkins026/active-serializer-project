@@ -62,14 +62,18 @@ function submit_form(team_id){
         name: $('#player_name').val(),
         nba_team: $('#player_nba_team').val(),
         position: $('#player_position').val(),
-        points: $('#player_points').val(),
         team_id: team_id
       }
     },
     success: function(response){
       console.log("this is a response", response);
       let player_info = new Player(response).getHTML();
+      let player_name = $("<td>" + response.name+"</td>");
+      let player_team = $("<td>" + response.nba_team+"</td>");
+      let player_position = $("<td>" + response.position+"</td>");
+      let player_points = $("<td>" + "</td>");
       $("#teams_olist").append(player_info);
+      $("#add_player_row").find('tr:last').append(player_name, player_team, player_position, player_points);
     },
     error: function(response){
       console.log("this is an error response", response.responseText);

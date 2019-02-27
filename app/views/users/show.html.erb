@@ -1,11 +1,14 @@
 <% if user_check(@user.id)%>
   <h1>Hi, <%= @user.name%>!</h1>
-  <p> <%= link_to "Edit Your Information", edit_user_path(@user) %> <p>
+
+  <div class="scrollmenu">
+    <%= link_to "Teams Center", teams_path%>
+    <%= link_to "Create A New Team", new_team_path %>
+    <%= link_to "Comment Board", comments_path %>
+    <%= link_to "Edit Your Information", edit_user_path(@user) %>
+  </div>
 <% else %>
   <h1>Checking out the competition, huh <%= current_user.name%>?!</h1>
 <%end%>
 
   <%= render 'table' %> <br>
-
-  <p> <%= link_to "Create A New Team", new_team_path %> </p>
-  <p> <%= link_to "Comment Board", comments_path %> </p>

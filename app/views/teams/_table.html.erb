@@ -10,7 +10,7 @@
     <tbody>
       <% if @team.players.count > 0 %>
         <% @team.players.each_with_index do |p, index| %>
-          <tr>
+          <tr id="add_player_row">
             <td> <%= index + 1%> </td>
             <td> <%= link_to "#{p.name}", team_player_path(@team, p) %> </td>
             <td> <%= p.nba_team %></td>

@@ -1,0 +1,10 @@
+<h1><%= @player.name%> Overview </h1>
+  <% if owned?(@player.team_id) %>
+    <%= link_to "Back to team", team_path(@player.team) %> <br>
+  <% end %>
+
+<ul>
+  <li> Position: <%= @player.position %> </li>
+  <li> NBA Team: <%= @player.nba_team %> </li>
+  <li> Weekly Points: <%= @player.points %> </li>
+</ul>
