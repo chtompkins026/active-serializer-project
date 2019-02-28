@@ -1,6 +1,16 @@
-<h3 class="commentTitle"> Current Comment: <%= @comment.title %></h3>
-<p class="commentBody"> Content: <%= @comment.description %></p>
-<button id="next_comment_button"> Next Comment </button>
+<div class="comments_show_div">
+  <table class="comment_show_table">
+    <tr>
+      <th>Current Comment</th>
+      <th>Content</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <td> <h3 class="commentTitle"> <%= @comment.title %></h3> </td>
+      <td> <p class="commentBody"> <%= @comment.description %></p> </td>
+      <td> <button id="next_comment_button"> Next Comment </button> </td>
+    </tr>
+</div>
 
 <script type="text/javascript" charset="utf-8">
 
