@@ -1,12 +1,16 @@
-<table>
+<table id="comment_index_table">
   <tr>
-    <th>ID</th>
+    <th>Author</th>
     <th>Title</th>
     <th>Description</th>
     <th> More </th>
   </tr>
   <tr>
-    <td><%= comment.id %></td>
+    <% if comment.user.nil? %>
+      <td> No Author </td>
+    <% else %>
+      <td><%= comment.user.name %></td>
+    <% end %> 
     <td><%= link_to comment.title, comment_path(comment) %></td>
     <td><div id="body-<%= comment.id %>"><%= truncate comment.description %></div></td>
     <td> <button class="js-more" data-id="<%= comment.id %>">More...</button> </td>

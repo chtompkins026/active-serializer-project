@@ -559,35 +559,3 @@ div.scrollmenu a:hover {
   font-size: 12px;
   border-radius: 20px;
 }
-
-
-/* Comment Show Table  */
-
-#next_comment_button{
-  text-decoration: none;
-  border: none;
-  outline: none;
-  height: 50px;
-  width: 50%;
-  background: #fb2525;
-  color: #fff;
-  font-size: 18px;
-  font-size: 12px;
-  border-radius: 20px;
-}
-
-.comments_show_div{
-  margin-top: 3%;
-  margin-left: 10%;
-  width: 100%;
-  position: absolute;
-}
-
-.comment_show_table{
-  width: 80%;
-  table-layout:fixed;
-}
-
-/* .comment_show_table > td {
-  width: ;
-} */

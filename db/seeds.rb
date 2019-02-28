@@ -3,6 +3,7 @@ require 'faker'
   User.destroy_all
   Team.destroy_all
   Player.destroy_all
+  Comment.destroy_all
 
   user1 = User.create!({name: 'Chris', password:'password', email:'chtompkins026@gmail.com'})
   user2 = User.create!({name: 'Jason Tompkins', password:'password1', email:'chtompkins027@gmail.com'})

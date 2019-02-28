@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update]
 
   def index
-    @comments = Comment.all
+    @comments = Comment.sort_by_comment
   end
 
   def show
@@ -55,6 +55,6 @@ private
   end
 
   def comment_params
-    params.require(:comment).permit(:title, :description)
+    params.require(:comment).permit(:title, :description, :user_id)
   end
 end
