@@ -1,19 +1,47 @@
-<a href="#" class="js-next" data-id="<%=@comment.id%>">Next...</a>
-<h1 class="commentTitle"><%= @comment.title %></h1>
+<!-- <a href="#" class="js-next-comment" data-id="<%=@comment.id%>">Next Comment</a> -->
+<h3 class="commentTitle"><%= @comment.title %></h3>
 <p class="commentBody"><%= @comment.description %></p>
-
+<!--
 <script type="text/javascript" charset="utf-8">
 $(function () {
-  $(".js-next").on("click", function() {
-    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+  $(".js-next-comment").on("click", function() {
+    var nextId = parseInt($(".js-next-comment").attr("data-id")) + 1;
     $.get("/comments/" + nextId + ".json", function(data) {
       // get comment
       var comment = data;
+      console.log("This is the comment", data);
+
       $(".commentTitle").text(comment["title"]);
       $(".commentBody").text(comment["description"]);
       // re-set the id to current on the link
-      $(".js-next").attr("data-id", comment["id"]);
+      $(".js-next-comment").attr("data-id", comment["id"]);
     });
   });
 });
+</script> -->
+
+<div>
+  <div class="individual_comment">
+  </div>
+  <button id="next_comment_button"> Next Comment </button>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  let current_comment_id = <%= params[:id] %>;
+
+  console.log("current_comment_id: " + current_comment_id);
+  showComment(current_comment_id);
+
+  $("#next_comment_button").on("click", (e) => {
+    e.preventDefault();
+    $.ajax({
+     url: '/next_comment/'+current_comment_id+'.json',
+     method: 'GET',
+     success: function(response){
+       console.log("this is the comment controller response: ", response);
+       current_comment_id = response;
+       showComment(current_comment_id + 1);
+     }
+    });
+  });
 </script>

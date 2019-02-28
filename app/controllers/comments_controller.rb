@@ -6,11 +6,19 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find(params[:id])
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @comment}
     end
+  end
+
+  def next_comment
+    comments = Comment.all.pluck(:id)
+    original_id = comments.index(params[:id].to_i)
+    next_id = (original_id + 1) % comments.length
+    @next_id = comments[next_id]
+
+    render json: @next_id.to_json
   end
 
   def new
@@ -44,7 +52,7 @@ class CommentsController < ApplicationController
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_comment
-    @comment = comment.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

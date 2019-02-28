@@ -1,0 +1,15 @@
+function showComment (id) {
+  $.ajax({
+   url: '/comments/'+id+'.json',
+   method: 'GET',
+   success: function(response){
+     console.log("This is the comment Response", response);
+     let comment_title = $("<h3>" + "Current Comment: " + response.title + "</h3>");
+     let comment_body = $("<p>" + "Content: " + response.description + "</p>");
+     $(".commentTitle").empty();
+     $(".commentTitle").append(comment_title);
+     $(".commentBody").empty();
+     $(".commentBody").append(comment_body);
+   }
+  });
+}
