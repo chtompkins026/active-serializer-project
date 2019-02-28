@@ -8,7 +8,7 @@
       <% end %>
     </select><br>
 
-    <label for="player_nba_team"> Team: </label>
+    <!-- <label for="player_nba_team"> Team: </label>
     <select name="player_nba_team" id="player_nba_team">
       <% Player.all.pluck(:nba_team).uniq.each do |team| %>
         <option value="<%=team%>"> <%=team%> </option>
@@ -20,7 +20,7 @@
       <% Player.all.pluck(:position).uniq.each do |pos| %>
         <option value="<%=pos%>"> <%=pos%> </option>
       <% end %>
-    </select><br>
+    </select><br> -->
 
     <input type="button" onclick="submit_form(current_id);" value="Add Player"> </input>
 </form>

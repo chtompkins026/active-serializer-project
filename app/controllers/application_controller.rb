@@ -9,13 +9,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-      if !session[:user_id].nil? && User.exists?(id: session[:user_id])
-        User.find(session[:user_id])
-      else
-        session[:user_id] = nil
-        return nil
-      end
+    if !session[:user_id].nil? && User.exists?(id: session[:user_id])
+      User.find(session[:user_id])
+    else
+      session[:user_id] = nil
+      return nil
     end
+  end
 
     def user_check(user_id)
       current_user.id == user_id ? TRUE : FALSE

@@ -1,25 +1,27 @@
-<table class="team_show_table">
+<table id="team_show_table">
     <thead>
       <tr>
         <th> No. </th>
         <th> Name </th>
         <th> NBA Team </th>
+        <th> Position </th>
         <th> Proj. Points </th>
       </tr>
     </thead>
     <tbody>
       <% if @team.players.count > 0 %>
         <% @team.players.each_with_index do |p, index| %>
-          <tr id="add_player_row">
+          <tr class="add_player_row">
             <td> <%= index + 1%> </td>
             <td> <%= link_to "#{p.name}", team_player_path(@team, p) %> </td>
             <td> <%= p.nba_team %></td>
+            <td> <%= p.position %></td>
             <td> <%= p.points %> </td>
             <% end %>
           </tr>
         <% else %>
           <tr>
-            <td id="no_players"> No Players On Team </td>
+            <td class="no_players"> No Players On Team </td>
             <td> </td>
             <td> </td>
             <td> </td>

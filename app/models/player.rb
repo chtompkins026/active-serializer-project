@@ -1,5 +1,5 @@
 class Player < ApplicationRecord
-  belongs_to :team, optional: true
-
-  validates_uniqueness_of :name, scope: :team_id, message: " can not be a duplicate of someone already on your team"
+  # belongs_to :team, optional: true
+  has_many :player_teams
+  has_many :teams, through: :player_teams
 end

@@ -15,9 +15,8 @@ class TeamsController < ApplicationController
   end
 
   def next_team
-    @id = params[:id]
     teams = Team.all.pluck(:id)
-    original_id = teams.index(@id.to_i)
+    original_id = teams.index(params[:id].to_i)
     next_id = (original_id + 1) % teams.length
     @next_id = teams[next_id]
 
@@ -25,9 +24,12 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.create(team_params)
-    @team.save
-    redirect_to team_path(@team)
+    @team = Team.new(team_params)
+    if @team.save
+      redirect_to team_path(@team)
+    else
+      render json: @team.errors.messages.join("\n")
+    end
   end
 
   def edit
@@ -36,8 +38,7 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find(params[:id])
-    @team.update(team_params)
-    if @team.save
+    if @team.update(team_params)
       redirect_to team_path(@team)
     else
       render :edit
@@ -65,5 +66,4 @@ class TeamsController < ApplicationController
       }
     end
   end
-
 end #end of class

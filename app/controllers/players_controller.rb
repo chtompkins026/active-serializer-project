@@ -6,31 +6,22 @@ class PlayersController < ApplicationController
 
   def index
     @players = Player.all
-    # @team = Team.find(params[:team_id])
-    # @league_id = League.find(params[:league_id])
-    if session[:user_id]
-      @user = User.find(session[:user_id])
-    end
   end
 
   def create
-    @player = Player.create(player_params)
-    if @player.save
-      respond_to do |f|
-        f.json{
-          render json: @player
-        }
-      end
+    @player = Player.find_by(name: player_params[:name])
+    @team = Team.find(player_params[:team_id])
+    player_team = PlayerTeam.new(player: @player, team: @team)
+    if player_team.save
+      render json: @player
     else
-      render json: "#{@player.errors.full_messages.join(", ")}"
+      render json: "#{player_team.errors.full_messages.join(", ")}"
     end
   end
 
-private
+  private
 
   def player_params
-    params.require(:player).permit(:name, :position, :nba_team, :points, :team_id)
+    params.require(:player).permit(:name, :team_id)
   end
-
-
 end

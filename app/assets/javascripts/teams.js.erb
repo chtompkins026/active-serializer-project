@@ -1,0 +1,30 @@
+$( document ).on('turbolinks:load', function() {
+  $.ajax({
+   url: '/teams.json',
+   method: 'GET',
+   success: function(response){
+     $("#teams_olist").clear
+     response.forEach((team) => {
+      let team_html = $("<li>" + "<a href='/teams/"+ team.id + "'" + ">" + team.name + "</a>"+ " "+ team.id + "</li>");
+      $("#teams_olist").append(team_html);
+    });
+   }
+  });
+
+  let current_id = <%= Team.first.id %> ;
+  console.log("current_id: " + current_id);
+
+  showTeam(current_id);
+  $("#next_button").on("click", (e) => {
+    e.preventDefault();
+    $.ajax({
+     url: '/next_team/'+current_id+'.json',
+     method: 'GET',
+     success: function(response){
+       console.log("this is the response: ", response);
+       current_id = response;
+       showTeam(current_id + 1);
+     }
+    });
+  });
+});

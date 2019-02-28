@@ -42,16 +42,18 @@ class Player{
     this.name = obj.name;
     this.nba_team = obj.nba_team;
     this.position = obj.position;
+    this.points = obj.points;
   }
 
   getHTML(){
-    return "<li>" + this.name + " - "+ this.nba_team + "</li>" ;
+    let table_row = '<tr>' + ("<td>" + $('#team_show_table tr').length + "</td>") +("<td>" + this.name+"</td>") + ("<td>" + this.nba_team+"</td>") + ("<td>" + this.position+"</td>") + ("<td>" + this.points + "</td>") + '</tr>';
+    return table_row;
   }
 }
 
 // Submit Form For Add Player
 
-function submit_form(team_id){
+function submit_form(team_id) {
   $("#errors").text("");
   console.log("team_id: " + team_id);
   $.ajax({
@@ -60,20 +62,13 @@ function submit_form(team_id){
     data: {
       player: {
         name: $('#player_name').val(),
-        nba_team: $('#player_nba_team').val(),
-        position: $('#player_position').val(),
         team_id: team_id
       }
     },
     success: function(response){
-      console.log("this is a response", response);
-      let player_info = new Player(response).getHTML();
-      let player_name = $("<td>" + response.name+"</td>");
-      let player_team = $("<td>" + response.nba_team+"</td>");
-      let player_position = $("<td>" + response.position+"</td>");
-      let player_points = $("<td>" + "</td>");
-      $("#teams_olist").append(player_info);
-      $("#add_player_row").find('tr:last').append(player_name, player_team, player_position, player_points);
+      console.log("response: " + response);
+      let player_row = new Player(response).getHTML();
+      $('#team_show_table tr:last').after(player_row);
     },
     error: function(response){
       console.log("this is an error response", response.responseText);
