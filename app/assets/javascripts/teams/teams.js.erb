@@ -1,0 +1,108 @@
+class Team {
+  constructor(params){
+    this.id = params.id;
+    this.name = params.name;
+    this.owner = params.user.name;
+    this.points = params.total_points; 
+  }
+  getHTML(){
+    return ("<tr>" + "<td>" + "<a href='/teams/"+ this.id + "'" + ">" + this.name + "</a>"+ "</td>" +
+    "<td>" + this.name + "</td>" +
+    "<td>" + this.owner + "</td>" +
+    "<td>" + this.points + "</td>" +
+    + "</tr>")
+  }
+}
+
+$( document ).on('turbolinks:load', function() {
+  $.ajax({
+   url: '/teams.json',
+   method: 'GET',
+   success: function(response){
+     $("#teams_table").clear
+     response.forEach((team) => {
+      let team_html = new Team(team).getHTML();
+      $("#teams_table").append(team_html);
+    });
+   }
+  });
+
+  let current_id = <%= Team.first.id %> ;
+  console.log("current_id: " + current_id);
+
+  showTeam(current_id);
+  $("#next_button").on("click", (e) => {
+    e.preventDefault();
+    $.ajax({
+     url: '/next_team/'+current_id+'.json',
+     method: 'GET',
+     success: function(response){
+       console.log("this is the response: ", response);
+       current_id = response;
+       showTeam(current_id + 1);
+     }
+    });
+  });
+});
+
+function showTeam(id) {
+  $.ajax({
+   url: '/teams/'+id+'.json',
+   method: 'GET',
+   success: function(response){
+     let team_name = $("<h2>" + "Current Team: " + response.name + "</h2>");
+     $("#individual_team").empty();
+     $("#individual_team").append(team_name);
+     $("#teams_list").empty();
+     response.players.forEach((p)=>{
+       let player_info = $("<li>" + p.name + " - "+ p.nba_team + "</li>");
+       $("#teams_list").append(player_info);
+     });
+   }
+  });
+}
+
+// New Player Class
+
+class Player{
+  constructor(obj){
+    this.name = obj.name;
+    this.nba_team = obj.nba_team;
+    this.position = obj.position;
+    this.points = obj.points;
+  }
+
+  getHTML(){
+    let table_row = '<tr>' + ("<td>" + $('#team_show_table tr').length + "</td>")
+     +("<td>" + this.name+"</td>") + ("<td>" + this.nba_team+"</td>") +
+     ("<td>" + this.position+"</td>") + ("<td>" + this.points + "</td>") + '</tr>';
+    return table_row;
+  }
+}
+
+// Submit Form For Add Player
+
+function submit_form(team_id) {
+  $("#errors").text("");
+  console.log("team_id: " + team_id);
+  $.ajax({
+    url: '/teams/'+team_id+'/players'+'.json',
+    method: 'POST',
+    data: {
+      player: {
+        name: $('#player_name').val(),
+        team_id: team_id
+      }
+    },
+    success: function(response){
+      console.log("response: " + response);
+      let player_row = new Player(response).getHTML(); //call formatter and getting a table row and appending to last row of table
+      $('#team_show_table tr:last').after(player_row);
+    },
+    error: function(response){
+      console.log("this is an error response", response.responseText);
+      let error_info = response.responseText;
+      $("#errors").text(error_info);
+    }
+  });
+}
