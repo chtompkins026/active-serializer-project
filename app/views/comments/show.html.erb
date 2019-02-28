@@ -3,6 +3,9 @@
 <button id="next_comment_button"> Next Comment </button>
 
 <script type="text/javascript" charset="utf-8">
+
+$( document ).on('turbolinks:load', function() {
+
   let current_comment_id = <%= params[:id] %>;
 
   $("#next_comment_button").on("click", (e) => {
@@ -17,6 +20,7 @@
      }
     });
   });
+});
 </script>
 
 <!-- <a href="#" class="js-next-comment" data-id="<%=@comment.id%>">Next Comment</a> -->
