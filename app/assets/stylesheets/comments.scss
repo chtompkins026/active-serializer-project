@@ -38,3 +38,97 @@
 /* .comment_show_table > td {
   width: ;
 } */
+
+
+/* comments section */
+
+.comments.new {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: url(basketball.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: sans-serif;
+}
+
+.field label {
+  color: white;
+}
+.comments_title {
+  margin-top: 50px;
+  color: #fff;
+  text-transform: uppercase;
+  transition: all 4s ease-in-out;
+}
+
+.comments_title h2{
+    font-size: 32px;
+    line-height: 10px;
+}
+
+
+.form_class {
+  margin-top: 50px;
+  transition: all 4s ease-in-out;
+}
+
+.form_class label {
+  color: #fff;
+  font-size: 28px;
+}
+
+.form_class input[type="submit"]{
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #fb2525;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.form_class input[type="submit"]:hover{
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+
+.form_control{
+  width: 600px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid gray;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+#commentResult {
+  transition: all 4s ease-in-out;
+  margin-top: 4%;
+  position: relative;
+  background: gray;
+  opacity: 0.9;
+}
+#comment_table{
+  width: 100%;
+}
+#commentResult h3 {
+  color: #fff;
+  text-align: center;
+}
+
+.comment_table_button{
+  text-decoration: none;
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 50%;
+  background: #fb2525;
+  color: #fff;
+  font-size: 18px;
+  font-size: 12px;
+  border-radius: 20px;
+}

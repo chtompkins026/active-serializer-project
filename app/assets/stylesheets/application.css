@@ -18,36 +18,6 @@
    display: inline-block;
  } */
 
-/* creating a new team  */
-
- .field {
-   margin-top: 1%;
-   margin-bottom: 1%;
- }
-
-
- button {
-  font-size: 22px;
-  padding: 4px 8px;
-  display: block;
-  margin: 20px auto 0;
-  color: gray;
-}
-
- #title{
- font-size: 40px;
- font-family: Arial, Helvetica, sans-serif;;
- text-align: left;
- font-style: italic;
- text-transform: uppercase;
- text-shadow: #2c2c2c 2px 2px 5px;
- color: red;
- position: absolute;
-}
-
- #errors{
-   color: red;
- }
 
  /* body */
 
@@ -227,19 +197,11 @@
 
  /* Table CSS */
 
-
  .table {
    margin-top: 2%;
    margin-left: 10px;
    width: 90%;
   /* border-spacing: 5px;  */
-}
-
-.team_show_table {
-  margin-top: 2%;
-  margin-left: 10px;
-  width: 50%;
- /* border-spacing: 5px;  */
 }
 
  th {
@@ -280,119 +242,6 @@ tr:nth-child(odd) {
   background-color: #D3D3D3;
 }
 
-/* no players on team show */
-
-#no_players {
-  color: gray;
-}
-
-/* Adding a Player To Team */
-.add_player {
-  width: 30%;
-  height: 60%;
-  background: #7FFFD4;
-  opacity: 0.8;
-  color: #fff;
-  top: 50%;
-  left: 80%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  border-radius: 4%;
-  padding: 70px 30px;
-}
-
-#add_h1{
-  margin: 0;
-  padding: 0 0 20px;
-  text-align: center;
-  font-size: 28px;
-  color: black;
-}
-
-.add_player label{
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-}
-
-.add_player select{
-  width: 100%;
-  height: 30px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.add_player label{
-  color: black;
-}
-
-.select-selected {
-  background-color: DodgerBlue;
-}
-
-/* Style the arrow inside the select element: */
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-
-/* Point the arrow upwards when the select box is open (active): */
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
-
-/* style the items (options), including the selected item: */
-.select-items div,.select-selected {
-  color: #ffffff;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
-}
-
-/* Style items (options): */
-.select-items {
-  position: absolute;
-  background-color: DodgerBlue;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-
-/* Hide the items when the select box is closed: */
-.select-hide {
-  display: none;
-}
-
-.select-items div:hover, .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.add_player input[type="button"]{
-  border: none;
-  outline: none;
-  height: 40px;
-  width: 100%;
-  background: #fb2525;
-  color: #fff;
-  font-size: 18px;
-  border-radius: 20px;
-}
-
-.add_player input[type="button"]:hover{
-  cursor: pointer;
-  background: #ffc107;
-  color: #000;
-}
 
 /* Nav Bar CSS  */
 
@@ -464,98 +313,4 @@ div.scrollmenu a:hover {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
-}
-
-
-/* comments section */
-
-.comments.new {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background: url(basketball.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: sans-serif;
-}
-
-.field label {
-  color: white;
-}
-.comments_title {
-  margin-top: 50px;
-  color: #fff;
-  text-transform: uppercase;
-  transition: all 4s ease-in-out;
-}
-
-.comments_title h2{
-    font-size: 32px;
-    line-height: 10px;
-}
-
-
-.form_class {
-  margin-top: 50px;
-  transition: all 4s ease-in-out;
-}
-
-.form_class label {
-  color: #fff;
-  font-size: 28px;
-}
-
-.form_class input[type="submit"]{
-  border: none;
-  outline: none;
-  height: 40px;
-  background: #fb2525;
-  color: #fff;
-  font-size: 18px;
-  border-radius: 20px;
-}
-
-.form_class input[type="submit"]:hover{
-  cursor: pointer;
-  background: #ffc107;
-  color: #000;
-}
-
-.form_control{
-  width: 600px;
-  background: transparent;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid gray;
-  color: #fff;
-  font-size: 18px;
-  margin-bottom: 16px;
-}
-
-#commentResult {
-  transition: all 4s ease-in-out;
-  margin-top: 4%;
-  position: relative;
-  background: gray;
-  opacity: 0.9;
-}
-#comment_table{
-  width: 100%;
-}
-#commentResult h3 {
-  color: #fff;
-  text-align: center;
-}
-
-.comment_table_button{
-  text-decoration: none;
-  border: none;
-  outline: none;
-  height: 50px;
-  width: 50%;
-  background: #fb2525;
-  color: #fff;
-  font-size: 18px;
-  font-size: 12px;
-  border-radius: 20px;
 }

@@ -1,3 +1,50 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* creating a new team  */
+
+ .field {
+   margin-top: 1%;
+   margin-bottom: 1%;
+ }
+
+
+ button {
+  font-size: 22px;
+  padding: 4px 8px;
+  display: block;
+  margin: 20px auto 0;
+  color: gray;
+}
+
+ #title{
+ font-size: 40px;
+ font-family: Arial, Helvetica, sans-serif;;
+ text-align: left;
+ font-style: italic;
+ text-transform: uppercase;
+ text-shadow: #2c2c2c 2px 2px 5px;
+ color: red;
+ position: absolute;
+}
+
+ #errors{
+   color: red;
+ }
+
+ /* Team Show Table  */
+ .team_show_table {
+   margin-top: 2%;
+   margin-left: 10px;
+   width: 60%;
+ }
+
+  /* Teams Table on Index */
+
+  .table_container{
+    display: flex;
+    // flex-direction: row;
+    // flex-wrap: nowrap;
+    flex-grow: 1;
+  }
